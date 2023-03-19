@@ -26,7 +26,7 @@ Of course this comes at the cost of customizability, but I think it's worth it i
 ### Basic increment
 
 ```go
-bar := gobar.NewBar(0, 100, "basic", "done!")
+bar := gobar.NewBar(0, 100, "basic")
 
 for i := 0; i < 100; i++ {
     time.Sleep(10 * time.Millisecond)
@@ -44,6 +44,6 @@ defer resp.Body.Close()
 f, _ := os.OpenFile("go1.14.2.src.tar.gz", os.O_CREATE|os.O_WRONLY, 0644)
 defer f.Close()
 
-bar := gobar.NewBar(0, resp.ContentLength, "io", "done!")
+bar := gobar.NewBar(0, resp.ContentLength, "io")
 io.Copy(io.MultiWriter(f, bar), resp.Body)
 ```
