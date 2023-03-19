@@ -16,10 +16,7 @@ Originally, I was using [progressbar](https://github.com/schollz/progressbar) by
 
 However, that library has (mostly) been unmaintained, only with PR's being merged and dependencies being updated from time to time.
 
-And this would have been fine, except that [I was having a bug](https://github.com/schollz/progressbar/issues/155) which meant that it
-put my other program to a halt because I couldn't do anything else.
-
-So, after waiting a while, I decided to just make my own progressbar with only **~70** sloc!
+So I decided to just make my own progressbar with only **~70** sloc!
 (In comparison to **~800** of [progressbar](https://github.com/schollz/progressbar))
 
 Of course this comes at the cost of customizability, but I think it's worth it in my opinion to at least have something that works for me.
