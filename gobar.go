@@ -15,7 +15,6 @@ type Bar struct {
 	Value         int64
 	Total         int64
 	Description   string
-	Done          string
 	Throttle      int64
 	lastDisplayed time.Time
 }
@@ -24,8 +23,8 @@ type Bar struct {
 // This will call bar.Display(), so be careful not to call it to early in your program.
 //
 //nolint:gomnd // Magic numbers for configuration.
-func NewBar(value int64, total int64, description string, done string) *Bar {
-	bar := Bar{Value: value, Total: total, Description: description, Done: done, Throttle: 65}
+func NewBar(value int64, total int64, description string) *Bar {
+	bar := Bar{Value: value, Total: total, Description: description, Throttle: 65}
 	bar.Init()
 
 	return &bar
@@ -54,7 +53,7 @@ func (bar *Bar) Init() {
 func (bar *Bar) Finish() {
 	bar.Value = bar.Total
 	bar.Display(true)
-	fmt.Fprintf(os.Stderr, "\n%s\n", bar.Done)
+	fmt.Fprint(os.Stderr, "\n")
 }
 
 // Increments the bar by num and displays it.

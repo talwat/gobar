@@ -10,7 +10,7 @@ import (
 )
 
 func BenchmarkRender(b *testing.B) {
-	bar := gobar.NewBar(0, 10000, "benchmark", "done!")
+	bar := gobar.NewBar(0, 10000, "benchmark")
 
 	for i := 0; i < int(bar.Total); i++ {
 		bar.Increment(1)
@@ -20,7 +20,7 @@ func BenchmarkRender(b *testing.B) {
 func TestBasic(t *testing.T) {
 	t.Parallel()
 
-	bar := gobar.NewBar(0, 10, "basic", "done!")
+	bar := gobar.NewBar(0, 10, "basic")
 
 	for i := 0; i < int(bar.Total); i++ {
 		time.Sleep(10 * time.Millisecond)
@@ -34,7 +34,7 @@ func TestIO(t *testing.T) {
 	req, _ := http.NewRequest("GET", "https://dl.google.com/go/go1.14.2.src.tar.gz", nil)
 	resp, _ := http.DefaultClient.Do(req)
 
-	bar := gobar.NewBar(0, resp.ContentLength, "io", "done!")
+	bar := gobar.NewBar(0, resp.ContentLength, "io")
 
 	defer resp.Body.Close()
 
